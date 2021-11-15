@@ -51,7 +51,7 @@ Nun ist die Frage, mit welchen Mitteln erreicht man solche Ziele?
 **1. Symmetrische Methoden**
 
 Die bekannteste symmetrische Methode ist die [Caesar-Verschlüsselung](https://de.wikipedia.org/wiki/Caesar-Verschl%C3%BCsselung). Also, man braucht zum Verschlüsseln und Entschlüsseln denselben Schlüssel:
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/CaesarVerschluesselung.png">
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/CaesarVerschluesselung.png">
 
 Hier auf dem Bild sieht man, dass die deutsche Alphabet um 3 Buchstaben nach links verrutscht sind. Die ersten 3 Buchstaben *A, B, C*  kommen dann ans Ende der Tabelle. Somit kann man der Sender Nachrichten verschlüsseln und der Empfänger kann dann dies mit derselben Tabelle entschlüsseln. Das ist aber nicht vertraulich genug, denn der Angreifer muss nur noch den Schlüssel 3 kennen.
 
@@ -65,7 +65,7 @@ Nachteile:
 
 **2. Asymmetrische Methoden**
 
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/AsymmetrischeVerschl%C3%BCsselung.png" width="519" height="616" >
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/AsymmetrischeVerschl%C3%BCsselung.png" width="519" height="616" >
 
 Bei den asymmetrischen Methoden verwendet man zwei Schlüssel Paare: öffentlicher und private Schlüssel. In der Regel verwendet der Empfänger den privaten und der Sender den öffentlichen Schlüssel. Also, jeder, der dem Empfänger eine Nachricht schreiben will, verschlüsselt diese Nachricht mit dem öffentlichen Schlüssel und sendet sie an den Empfänger. Diese Nachricht kann nur mit dem privaten Schlüssel entschlüsselt werden und ihn hat nur der Empfänger. Das ist wesentlich eine vertrauliche Methode als die symmetische Methode. Das eine der bekanntesten asymmetischen Verlüsselungen ist die von [RSA](https://de.wikipedia.org/wiki/RSA-Kryptosystem)
 
@@ -98,8 +98,8 @@ Zu den analytischen Methoden gehören z.B. algebraische oder statistische Modell
 ## 1. Was ist eine Hashfunktion?
 Eine [Hashfunktion](https://de.wikipedia.org/wiki/Hashfunktion) ist eine mathematische Einwegfunktion. Eine Einwegfunktion ist deswegen interresant, da man aus den Ausgabewerten der Funktion schwer bis praktisch unmöglich die Eingabewerte bestimmen kann. Die Betonung liegt hier auf den Eingabewerten, denn sie gelten zu verheimlichen bzw. verstecken. Schauen wir uns ein Beispiel an:
 
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/2hochkFunktion.png" >
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/Einwegfunktion.png" >
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/2hochkFunktion.png" >
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/Einwegfunktion.png" >
 
 Es ist eine Abbildung von {1,...,10} auf {1,...10}. Man sieht, dass die Werte irgendwie gestreut sind.
 Das erreicht man dadurch, indem man für jeden k aus {1,...,10} 2 hoch k mod 11 (Primzahl) berechnet. Z.B. 2 hoch 4 = 16 und 16 mod 11 = 5. Also, f(4) = 5. 
@@ -109,7 +109,7 @@ Man kann zeigen, dass für jede Primzahl *n* eine Basis *a* gibt,  sodass eine s
 Eine Hashfunktion werden in vielen Bereichen eingesetzt. Einige davon sind:
 - [Digitale Signatur](https://de.wikipedia.org/wiki/Digitale_Signatur)
 
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/DigitaleSignaturOhneHash.png">
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/DigitaleSignaturOhneHash.png">
 
 Anwendung der Hashfunktionen bei einer digitalen Signatur findet zusammen mit RSA statt. Zunächst möchte ich aber ohne Hashfunktion die [Digitale Signatur](https://de.wikipedia.org/wiki/Digitale_Signatur) erklären und dadurch entstehende Schwächen zeigen.
 
@@ -130,12 +130,12 @@ Ein anderer Grund nicht direkt die Nachricht *m* zu signieren, sondern ihren Has
 **Note**: Viel recherchiert, aber ich habe keine Antwort darauf gefunden, wieso ein Dritte nicht einfach alle Hashwerte von der Definitionsmenge berechnet und schaut, was das Urbild von *n1·n2* ist.
 
 
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/DigitaleSignatur.png">
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/DigitaleSignatur.png">
 
 
 - Passwortspeicherung
 
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/Passwort.png" >
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/Passwort.png" >
 Die Passwörter werden in der Datenbank nicht im Klartext geschrieben, sondern es werden die Hashwerte der Passwörter in der Datenbank festgehalten. Man kann meinen, dass man die Passwörter auch verschlüsselt in der Datenbank festhalten kann. Das Verschlüsseln hat den ersten Nachteil gegenüber dem Hashen, nämlich man kann sie wieder entschlüsseln, falls sie nicht so aufwendig verschlüsselt sind. Man kann nun sagen, dass man auch aus den Hashwerten die Passwörter auch erraten kann. Das stimmt, allerdings da kommt auch der zweite Nachteil vom Verschlüsseln, nämlich die Berechenbarkeit. Hashfunktionen sind schneller zu berechnen als Verschlüsseln bzw. Entschlüsseln. Aber in der Praxis kommt es auch vor, dass man auch die Hashwerte verschlüsselt.
 
 - [Prüffsumme](https://de.wikipedia.org/wiki/Pr%C3%BCfsumme)
@@ -159,13 +159,13 @@ Es gibt mehrere Angriffsmöglichkeiten, wenn die als Hashwerte gespeicherte Pass
 
 Dieses Verfahren scheiter aber, wenn die Hashwerte auch gesalzt sind. Die Idee ist jedem Passwort eine neue zufällig generierte Zeichenfolge hinzuzufügen und dessen Haswert zu berechnen und dem Benutzer zuzuordnen. Diese zufällig generierten Zeichenfolgen werden im Klartext in der Datenbank festgehalten. Falls ein Benutzer sich anmelden will, wird von ihm geschriebenen Passwort die für ihn zufällig generierte Zeichenfolge hinzugefügt und der Hashwert berechnen. Stimmen dieser Hashwert mit dem Hashwert in der Datenbank überein, so ist dann die Anmeldung erfolgreich.
 
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/Salz.png">
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/Salz.png">
 
 Nun kann man nicht eine zweite [Rainbow-Table](https://de.wikipedia.org/wiki/Rainbow_Table) erstellen, in der eine zufällig generierte Zeichenfolge jem beliebtesten Passwort hinzufügen und dessen Hashwert speichen. Der Aufwand ist zu groß dafür und ist nicht mehr wirtschaftlich.
 ## 5. Pfeffer einer Hashfunktion
 Das Pfeffern eine Hashfunktion dient demselben Zweck vom salzen einer Hashfunkiton. Der Unterschied liegt darin, dass es in i.d.R. wird die selbe Zeichenfolge zum Passwort hinzugefügt und diese Zeichenfolge ist geheim und wird nicht in der Datenbank festgehalten, sondern z.B. in einer geheimen Datei.
 
-<img src="https://github.com/Fazil-edu/Sil/blob/main/Bilder/Pfeffer.png">
+<img src="https://github.com/Fazil-edu/Hash_RSA/blob/main/Bilder/Pfeffer.png">
 
 
 
