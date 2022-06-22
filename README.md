@@ -185,7 +185,7 @@ Ausgehen von diesem Satz sind folgende Schritte sind zu tun:
 - **1. Schritt: öffentlichen Schlüssel anlegen:**
 
 1a. Eine Schranke *N* ermitteln:
-Wähle zwei große Primzahlen *p* und *q* mit *p≠q* und setze *N=p*q*.
+Wähle zwei große Primzahlen *p* und *q* mit *p≠q* und setze N=p*q.
 
 1b. Ermittle eine Zahl *e* als öffentlicher Schlüssel:
 Berechne *phi(N) = (q-1)\*(p-1)* und wähle eine beliebige Zahl 1 < *e* < *phi(N)* mit *ggt(e,phi(N)* = 1. 
@@ -223,7 +223,7 @@ Hierbei muss man einmal um den ÖS *e* zu bestimmen eine Zahl, die mit *ph(N)* k
             an_1 <- rn // here rn equals rn_1 because we haven't calculated the current rn yet
             qn   <- an_2 / rn // qn is the current qn, see below rn
             gcd  <- rn // here rn equals rn_1 because we haven't calculated the current rn yet
-            rn   <- (an_2 - qn*\an_1)
+            rn   <- (an_2 - qn\an_1)
             an_2 <- an_1
 
   return gcd
