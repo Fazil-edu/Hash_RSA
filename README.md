@@ -228,6 +228,23 @@ Hierbei muss man einmal um den ÖS *e* zu bestimmen eine Zahl, die mit *ph(N)* k
 
   return gcd
 ``` 
+
+
+``` 
+ EuclidianAlgorithm_2(a, b)
+
+    r = a%b
+
+    while (r != 0)
+    {
+        a = b
+        b = r
+        r = a%b
+    }
+    return b
+``` 
+
+
 Dieser Algorithmus hilft uns auch mit ein paar Extras den PS zu finden. Also, das Inverse *d* zu *e*: *e\*d = 1 (mod phi(N))*. Dieser heisst dann der erweiterter euklidscher Algorithmus:
 ```    
     Extended_Euclid(publicKey,phi(N))
