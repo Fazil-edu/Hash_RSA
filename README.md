@@ -180,7 +180,7 @@ Das RSA Verfahren basiert auf den folgenden Satz:
 Seien *p,q* zwei verschiedene Primzahlen und sei *N := p*\q*. Ferner sei *0<e<N* mit *ggt(e,phi(N))=1* und *0<d<N* mit *e\*d=1 (mod(ph(N))* Dann gilt für jedes *0<m<N*:
 *(m^e)^d = m (mod N)*.
 
-Ausgehen von diesem Satz sind folgende Schritte sind zu tun:
+Ausgehend von diesem Satz sind folgende Schritte sind zu tun:
 
 - **1. Schritt: öffentlichen Schlüssel anlegen:**
 
