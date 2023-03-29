@@ -223,7 +223,7 @@ Hierbei muss man einmal um den ÖS *e* zu bestimmen eine Zahl, die mit *ph(N)* k
             an_1 <- rn // here rn equals rn_1 because we haven't calculated the current rn yet
             qn   <- an_2 / rn // qn is the current qn, see below rn
             gcd  <- rn // here rn equals rn_1 because we haven't calculated the current rn yet
-            rn   <- (an_2 - qn\an_1)
+            rn   <- (an_2 - qn*an_1)
             an_2 <- an_1
 
   return gcd
@@ -258,10 +258,7 @@ Dieser Algorithmus hilft uns auch mit ein paar Extras den PS zu finden. Also, da
   dn_1 <- -qn // e3
   d <- 0
   
-  if rn == 0
-      return gcd
-  else
-      while rn != 0
+  while rn != 0
             an_1 <- rn
             qn   <- an_2 
             d <- dn
@@ -270,6 +267,7 @@ Dieser Algorithmus hilft uns auch mit ein paar Extras den PS zu finden. Also, da
             dn_1 <- dn
             rn   <- (an_2 - qn*\an_1)
             an_2 <- an_1
+      
 if d > 0
     return d
 else
